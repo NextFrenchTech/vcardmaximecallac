@@ -1,0 +1,250 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    --level-one:translateZ(2rem);
+        --level-two:translateZ(4rem);
+            --level-three:translateZ(6rem);
+                --level-four:translateZ(9rem);
+                    --level-five:translateZ(12rem);
+                    
+    --fw-normal:400;
+    --fw-bold: 700;
+    
+    --clr: #fff;
+}
+
+body {
+    height: 100%;
+    margin-top: 110px;
+    display: grid;
+    place-items: center;
+    font-family: sans-serif;
+    background-color: black;
+}
+
+.content {
+    text-align: center;
+    position: relative;
+    padding: 15em 5em;
+    transition: transform 2000ms;
+    transform-style: preserve-3d;
+}
+
+.card {
+    width: 350px;
+    backface-visibility: hidden;
+}
+
+.card:hover .content {
+    transform: rotateY(.5turn) /*rotateX(1turn)*/;
+}
+
+.front {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.2);
+    background-color: var(--clr);
+    background-size: cover;
+    color: #333;
+    background-image: url();
+
+}
+
+.back {
+    transform: rotateY(.5turn);
+    background-color: var(--clr);
+    background-size: cover;
+    color: #333;
+    background-image: url();
+
+}
+
+.front, .back {
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem 2em;
+    transform-style: preserve-3d;
+    align-content: center;
+}
+
+.front::before {
+    content: '';
+    position: absolute;
+    --spacer: 1em;
+    top: var(--spacer);
+    bottom: var(--spacer);
+    left: var(--spacer);
+    right: var(--spacer);
+    border: 3px solid currentColor;
+    transform: var(--level-one);
+}
+
+.back::before {
+    content: '';
+    position: absolute;
+    --spacer: 1em;
+    top: var(--spacer);
+    bottom: var(--spacer);
+    left: var(--spacer);
+    right: var(--spacer);
+    border: 3px solid currentColor;
+    transform: var(--level-one);
+}
+
+.card-avatar {
+    transform: var(--level-four);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card-title {
+    transform: var(--level-five);
+    font-size: 2rem;
+    letter-spacing: 1px;
+    bottom: 18px;
+    padding: 1rem 0em;
+    order: 2;
+    text-transform: uppercase;
+}
+
+.card-subtitle {
+    transform: var(--level-two);
+    letter-spacing: 2px;
+    bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: .75em;
+    font-weight: var(--fw-bold);
+    opacity: .7;
+}
+
+.card-content {
+    transform: var(--level-four);
+    font-weight: var(fw-normal);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.main-title {
+    transform: var(--level-three);
+
+    font-weight: var(fw-normal);
+    font-size: 1.5rem;
+    line-height: 1.6;
+    text-decoration: underline;
+}
+
+.main-subtitle {
+    transform: var(--level-three);
+    font-weight: var(fw-normal);
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-top: 25px;
+}
+
+#aboutMe {
+    text-align: left;
+    margin-left: 5px;
+}
+
+.main-content {
+    transform: var(--level-three);
+    font-weight: var(fw-normal);
+    font-size: 1rem;
+}
+
+.main-social {
+    transform: var(--level-four);
+    display: flex;
+    margin-left: 45px;
+    margin-bottom: 15px;
+}
+
+svg {
+    fill: rgb(165, 181, 206);
+    width: 16px;
+    height: 16px;
+    display: block;
+    transition: 0.3s;
+}
+
+a {
+    color: #000;
+}
+
+a:hover {
+    color: blue;
+}
+
+.button-social {
+    color: rgb(165, 181, 206);
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    background-color: rgba(93, 133, 193, 0.1);
+    border-radius: 50%;
+}
+
+.button-social:hover {
+    background-color: rgba(93, 133, 193, 0.25);
+}
+
+.bi-mail, .bi-geo, .bi-natel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    margin: 35px 0;
+}
+
+.chFlag {
+    margin: 0 5px 0 0;
+}
+
+.frFlag {
+    margin: 0 0 0 10px;
+}
+
+.gravityButton {
+    border-radius: 50%;
+}
+
+.gravityButton>button {
+    font: inherit;
+    width: 64px;
+    aspect-ratio: 1;
+    background: none;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transform: translate(var(--tx, 0), var(--ty, 0));
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+
+.gravityButton>button:hover, .gravityButton>button:focus-visible {
+    --_fill: var(--color, #fff);
+}
+
+.gravityButton>button:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.buttonIcon {
+    width: 50%;
+    fill: var(--_fill, rgb(165, 181, 206));
+    transition: fill 0.3s;
+}
