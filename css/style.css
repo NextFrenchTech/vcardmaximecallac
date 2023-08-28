@@ -18,14 +18,14 @@
 
 body {
     height: 100%;
-    margin-top: 110px;
+    margin-top: 100px;
     display: grid;
     place-items: center;
     font-family: sans-serif;
     background-color: black;
 }
 
-.card {
+.card, .reverseButton {
     width: 350px;
     backface-visibility: hidden;
 }
@@ -115,6 +115,7 @@ body {
 .card-subtitle {
     transform: var(--level-two);
     letter-spacing: 2px;
+    margin-left: 5px;
     bottom: 16px;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -182,7 +183,7 @@ a:hover {
     color: blue;
 }
 
-.button-social {
+.socialButton {
     color: rgb(165, 181, 206);
     height: 32px;
     width: 32px;
@@ -195,7 +196,7 @@ a:hover {
     border-radius: 50%;
 }
 
-.button-social:hover {
+.socialButton:hover {
     background-color: rgba(93, 133, 193, 0.25);
 }
 
@@ -240,8 +241,24 @@ a:hover {
     outline-offset: 2px;
 }
 
-.buttonIcon {
+.iconButton {
     width: 50%;
     fill: var(--_fill, rgb(165, 181, 206));
     transition: fill 0.3s;
+}
+
+.reverseButton {
+    visibility: hidden;
+}
+
+@media (max-width: 900px) {
+    .card:hover {
+        transform: none;
+    }
+    .reverse .card {
+        transform: rotateY(.5turn) /*rotateX(1turn)*/;
+    }
+    .reverseButton {
+        visibility: visible;
+    }
 }
