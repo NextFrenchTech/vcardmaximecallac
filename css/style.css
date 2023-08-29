@@ -251,7 +251,20 @@ a:hover {
     visibility: hidden;
 }
 
-@media (max-width: 900px) {
+.qrCode {
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.vcardQrCode {
+    color: #fff;
+    width: 100px;
+    height: 100px;
+    margin-right: 25px;
+}
+
+@media (max-width: 1024px) {
     .card:hover {
         transform: none;
     }
@@ -261,4 +274,10 @@ a:hover {
     .reverseButton {
         visibility: visible;
     }
+    .qrCode {
+        display: none;
+    }
+    /*.gravityButton>button {
+        --_fill: var(--color, #fff);
+    }*/
 }
