@@ -25,14 +25,18 @@ body {
     background-color: black;
 }
 
-.card, .reverseButton {
-    width: 350px;
-    backface-visibility: hidden;
+.card:hover .content {
+    transform: rotateY(-.5turn) /*rotateX(-1turn)*/;
 }
 
-.card:hover .content {
-    transform: rotateY(.5turn) /*rotateX(1turn)*/;
-}
+/*.xp {
+    transform-style: preserve-3d;
+    transform: perspective(1618px)
+    rotateX(75deg)
+    rotateY(10deg)
+    rotateZ(-75deg);
+    transition: transform 3s;
+}*/
 
 .content {
     text-align: center;
@@ -51,7 +55,7 @@ body {
 }
 
 .back {
-    transform: rotateY(.5turn);
+    transform: rotateY(-.5turn);
     background-color: var(--clr);
     background-size: cover;
     color: #333;
@@ -247,8 +251,21 @@ a:hover {
     transition: fill 0.3s;
 }
 
-.reverseButton {
+.moreButton {
+    transform: var(--level-four);
+    color: #a5b5ce;
+    text-decoration: overline;
+    margin-top: -25px;
+    margin-left: 224px;
+}
+
+.moreButton, .reverseButton {
     visibility: hidden;
+}
+
+.card, .reverseButton {
+    width: 350px;
+    backface-visibility: hidden;
 }
 
 .qrCode {
@@ -269,9 +286,12 @@ a:hover {
         transform: none;
     }
     .reverse .card {
-        transform: rotateY(.5turn) /*rotateX(1turn)*/;
+        transform: rotateY(-.5turn) /*rotateX(-1turn)*/;
     }
-    .reverseButton {
+    .regularButton {
+        visibility: hidden;
+    }
+    .moreButton, .reverseButton {
         visibility: visible;
     }
     .qrCode {
