@@ -167,8 +167,7 @@ body {
 .main-social {
     transform: var(--level-four);
     display: flex;
-    margin-left: 45px;
-    margin-bottom: 15px;
+    margin: 15px;
 }
 
 svg {
@@ -197,7 +196,6 @@ a:hover {
     justify-content: center;
     transition: 0.3s;
     background-color: rgba(93, 133, 193, 0.1);
-    border-radius: 50%;
 }
 
 .socialButton:hover {
